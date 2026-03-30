@@ -1,3 +1,9 @@
+"""Audio analysis pipeline for the assignment's emergency-call modality.
+
+The code leans on strong defaults and conservative fallbacks so the CSV stays
+usable even when short clips or noisy transcripts make extraction difficult.
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -132,6 +138,8 @@ def load_metadata(data_dir: Path) -> Optional[pd.DataFrame]:
         return None
 
     df = df.copy()
+    # Matching on basename keeps the lookup resilient even if the metadata file
+    # stores longer paths than the local workspace does.
     df["__basename__"] = df[filename_col].astype(str).apply(lambda x: os.path.basename(x).strip())
     return df
 
@@ -158,6 +166,8 @@ class AudioAnalyzer:
         device = "cuda" if torch.cuda.is_available() else "cpu"
         print(f"[INFO] Device: {device.upper()}")
 
+        # Load everything up front so the per-file loop stays simple and we pay
+        # the model startup cost only once.
         print(f"[INFO] Loading Whisper model: {self.whisper_model_size}")
         self.whisper_model = whisper.load_model(self.whisper_model_size, device=device)
         print("[INFO] Whisper loaded")
@@ -206,6 +216,8 @@ class AudioAnalyzer:
         best_event = "Unknown"
         best_score = 0
 
+        # A simple keyword vote is easier to reason about for class demos than a
+        # heavier classifier, and the metadata gives weak transcripts a boost.
         for event_type, keywords in EVENT_KEYWORDS.items():
             score = sum(1 for kw in keywords if kw in combined)
             if score > best_score:
@@ -219,6 +231,8 @@ class AudioAnalyzer:
         locations = [ent.text for ent in doc.ents if ent.label_ in ("GPE", "LOC", "FAC")]
         locations.extend(ADDRESS_PATTERN.findall(text))
 
+        # If metadata knows the state, surface it first so the output is not
+        # empty when the transcript itself is too short to name a place.
         if meta_state and str(meta_state).strip() and str(meta_state).lower() != "nan":
             locations.insert(0, str(meta_state).strip())
 
@@ -242,6 +256,8 @@ class AudioAnalyzer:
             print(f"[WARN] Sentiment analysis failed: {exc}")
             return "Unknown", None
 
+        # Urgency is a blend of emotional tone, emergency keywords, and any
+        # high-risk metadata fields that came with the call.
         keyword_hits = sum(1 for kw in URGENCY_KEYWORDS if kw in text.lower())
         keyword_score = min(keyword_hits / 5.0, 1.0)
 
@@ -281,6 +297,8 @@ class AudioAnalyzer:
 
         transcript = self.transcribe_audio(audio_path)
 
+        # Very short transcripts are usually not trustworthy enough to assign a
+        # specific event label, so we keep them as Unknown instead of guessing.
         if not transcript or transcript == "ERROR" or len(transcript.split()) < 3:
             event = "Unknown"
         else:
@@ -333,6 +351,8 @@ class AudioAnalyzer:
 
         records: List[Dict[str, object]] = []
         for idx, audio_path in enumerate(audio_files, start=1):
+            # Stable synthetic IDs make the integration step predictable even if
+            # the source filenames are messy.
             call_id = f"C{idx:03d}"
             print(f"[PROCESS] {call_id} | {audio_path.name}")
             records.append(self.process_one(call_id, audio_path))

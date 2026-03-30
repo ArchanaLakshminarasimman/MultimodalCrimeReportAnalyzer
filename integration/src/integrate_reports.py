@@ -103,11 +103,15 @@ def read_csv(path: Path, label: str) -> pd.DataFrame:
 
 
 def clean_value(value: object) -> str:
+    # Treat the usual placeholder tokens the same way so downstream merging does
+    # not have to care whether a source wrote "Unknown", "None", or blanks.
     text = str(value).strip()
     return "" if text.lower() in MISSING_TOKENS else text
 
 
 def normalize_token_list(values: Iterable[object], *, split_commas: bool = False) -> list[str]:
+    # This version keeps first-seen order and removes duplicates, which is handy
+    # for human-readable display fields in the final CSV.
     tokens: list[str] = []
     seen: set[str] = set()
 
@@ -132,6 +136,8 @@ def normalize_token_list(values: Iterable[object], *, split_commas: bool = False
 
 
 def countable_tokens(values: Iterable[object], *, split_commas: bool = False) -> list[str]:
+    # Unlike normalize_token_list, this one preserves repeats so we can compute
+    # frequency-based summaries such as the dominant event label.
     tokens: list[str] = []
     for value in values:
         text = clean_value(value)
@@ -204,6 +210,8 @@ def normalize_person_count(values: Iterable[object]) -> str:
 
 def ensure_columns(frame: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
     frame = frame.copy()
+    # Each modality script is allowed to evolve a little, so we backfill missing
+    # columns here instead of letting a slight schema difference break integration.
     for column in columns:
         if column not in frame.columns:
             frame[column] = ""
@@ -285,6 +293,8 @@ def prepare_video_rows(frame: pd.DataFrame) -> pd.DataFrame:
     frame["Persons_Count"] = pd.to_numeric(frame["Persons_Count"], errors="coerce")
     frame["Confidence"] = pd.to_numeric(frame["Confidence"], errors="coerce")
 
+    # Video arrives as frame-level rows, but integration works much better when
+    # each clip is summarized to one incident-friendly record.
     rows: list[dict[str, str]] = []
     for clip_id, group in frame.groupby("Clip_ID", sort=False):
         rows.append(
@@ -437,6 +447,8 @@ def detect_sources(record: dict[str, str]) -> str:
 
 
 def classify_severity(record: dict[str, str]) -> str:
+    # Severity is a transparent heuristic on purpose: it is easier to explain in
+    # the report/demo than a black-box classifier over a tiny prototype dataset.
     combined = " ".join(
         [
             record.get("Audio_Event", ""),
@@ -519,6 +531,8 @@ def finalize_records(records: list[dict[str, str]]) -> pd.DataFrame:
             "Text_Topic": record.get("Text_Topic", ""),
             "Text_Source_Severity": record.get("Text_Source_Severity", ""),
         }
+        # Source and Severity are derived last so they reflect whatever evidence
+        # survived the normalization/aggregation steps above.
         row["Source"] = detect_sources(row)
         row["Severity"] = classify_severity(row)
         finalized.append(row)
@@ -589,6 +603,8 @@ def build_mapped_incidents(
     video_rows: pd.DataFrame,
     text_rows: pd.DataFrame,
 ) -> pd.DataFrame:
+    # The incident map is the explicit ground truth for cross-modal matching in
+    # this assignment; we do not try to "guess" joins automatically.
     mapping = require_mapping_columns(incident_map)
     merged = mapping.merge(audio_rows, on="Call_ID", how="left")
     merged = merged.merge(document_rows, on="Report_ID", how="left")
@@ -612,6 +628,8 @@ def main() -> None:
     video_rows = prepare_video_rows(read_csv(args.video_csv, "Video"))
     text_rows = prepare_text_rows(read_csv(args.text_csv, "Text"))
 
+    # Default to map-based integration. Prototype mode still exists, but only as
+    # a fallback for rough experiments when a mapping file is not ready yet.
     if args.prototype:
         final_frame = build_prototype_incident(
             audio_rows,

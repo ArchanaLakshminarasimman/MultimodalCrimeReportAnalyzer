@@ -1,3 +1,5 @@
+"""Rule-based video pipeline for turning sampled CCTV frames into event logs."""
+
 import csv
 from pathlib import Path
 
@@ -39,6 +41,8 @@ def detect_persons(model, frame, conf_threshold=0.35):
     """
     results = model(frame, verbose=False)[0]
 
+    # Restricting the detector to people keeps the event logic stable and avoids
+    # noisy labels that are not useful for this prototype.
     allowed_classes = {"person"}
 
     detected_objects = []
@@ -257,6 +261,8 @@ def build_event_log_rows(clip_rows):
 # -----------------------------
 # Paths
 # -----------------------------
+# This script is intentionally runnable as a one-shot pipeline: import the
+# helpers above, then execute the full clip-processing workflow below.
 base_dir = Path(__file__).resolve().parent.parent
 data_dir = base_dir / "data"
 frames_root = base_dir / "frames"
@@ -295,7 +301,8 @@ for video_path in video_files:
         cap.release()
         continue
 
-    # sample 1 frame per second
+    # Sampling roughly one frame per second gives us lightweight event logs
+    # without exploding the number of frames we need to process.
     frame_interval = max(1, int(fps))
     frame_count = 0
     saved_count = 0
@@ -341,7 +348,8 @@ for video_path in video_files:
         if current_frame is None:
             continue
 
-        # motion score from previous sampled frame
+        # Motion is measured against the previous sampled frame so event labels
+        # react to actual scene change instead of filename hints.
         if i == 0:
             motion_score = 0.0
         else:
@@ -385,6 +393,8 @@ for video_path in video_files:
         else:
             person_shift = 0.0
 
+        # Track short temporal patterns so the final labels feel less jittery
+        # than frame-by-frame detector output.
         if persons_count > 0 and person_shift < 8:
             stationary_streak += 1
         else:
@@ -448,6 +458,8 @@ for video_path in video_files:
         f"{len(event_rows)} event rows"
     )
 
+# Once every clip is processed, write the cleaned event rows as the one CSV the
+# integration step expects from the video modality.
 with open(output_csv, "w", newline="", encoding="utf-8") as file:
     writer = csv.DictWriter(
         file,

@@ -149,6 +149,8 @@ def extract_text(
         n_pages = max(len(doc), 1)
         avg_len = len(native_clean) / n_pages
 
+        # Most assignment PDFs are text-based, so we prefer the native layer and
+        # only pay the OCR cost when the extracted text looks suspiciously thin.
         use_ocr = len(native_clean) < ocr_min_total_chars or avg_len < ocr_min_chars_per_page
         if not use_ocr:
             return native
@@ -282,6 +284,8 @@ def extract_entities(text: str, nlp: Any) -> Dict[str, Any]:
         if label not in ("GPE", "LOC", "FAC"):
             continue
 
+        # spaCy sometimes tags surnames or nearby facility names in awkward ways;
+        # these filters try to keep person tokens from leaking into locations.
         if any(_spans_overlap(ent.start_char, ent.end_char, ps, pe) for ps, pe in person_ranges):
             continue
 
@@ -378,6 +382,8 @@ def _resolve_officer(person_names: List[str], text: str) -> str:
         return ""
 
     if multi:
+        # When the document explicitly mentions an officer line, trust that
+        # first; otherwise fall back to the best-looking full person name.
         hit = best_match(multi, officer_lines)
         if hit:
             return hit
@@ -432,6 +438,8 @@ def _pick_location_filtered(
     for score, loc in scored:
         loc_clean = clean_text_v2(loc)
 
+        # Department names are often valid entities but poor incident locations,
+        # so we keep biasing toward cleaner place-like strings here.
         if any(word in loc_clean.lower() for word in ["police", "sheriff", "department", "office"]):
             continue
 
@@ -443,6 +451,8 @@ def _pick_location_filtered(
 
         return loc_clean
 
+    # If NER cannot find a reliable location, fall back to simple field-style
+    # patterns that often appear in reports.
     m = re.search(
         r"(?:location|address)\s*[:\-]\s*([A-Za-z][A-Za-z0-9\s,.-]{2,55})",
         text,
@@ -465,6 +475,8 @@ def _pick_location_filtered(
 
 def _classify_incident_type_v2(text: str) -> str:
     t = text.lower()
+    # This dataset contains a lot of training-style documents, so the heuristic
+    # intentionally leans toward "training" when those signals dominate.
     if "mrap" in t:
         return "Military Equipment Training"
     if "military equipment" in t and "training" in t:
@@ -598,6 +610,8 @@ def run_pipeline(
         nlp = load_nlp()
 
     rid = report_id if report_id is not None else unicodedata.normalize("NFKC", os.path.basename(pdf_path))
+    # Keep the orchestration thin here: each helper does one job, and this
+    # wrapper simply turns them into the one-row CSV the assignment expects.
     full_text = extract_text(pdf_path)
     ent = extract_entities(full_text, nlp)
     info = extract_incident_info(full_text, ent, report_id=rid)

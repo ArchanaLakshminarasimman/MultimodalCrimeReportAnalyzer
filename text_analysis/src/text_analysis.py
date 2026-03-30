@@ -1,3 +1,9 @@
+"""Text analysis pipeline for social posts, reports, and other written sources.
+
+The module tries richer NLP first, then falls back to lightweight heuristics so
+the assignment can still run on machines without every optional dependency.
+"""
+
 import argparse
 import ast
 import json
@@ -195,6 +201,8 @@ def unique_preserve_order(items: List[str]) -> List[str]:
 
 
 def setup_models(use_transformers: bool = True) -> ModelBundle:
+    # Model setup degrades gracefully: the pipeline should still produce a useful
+    # CSV even if spaCy models or transformer weights are unavailable.
     try:
         nlp = spacy.load("en_core_web_sm")
         has_ner = True
@@ -264,6 +272,8 @@ def parse_json_line(line: str) -> Optional[Dict[str, Any]]:
     if not line:
         return None
 
+    # Many classroom datasets are "almost JSON" rather than clean JSONL, so we
+    # try strict JSON first and then a safer Python-literal fallback.
     try:
         obj = json.loads(line)
         return obj if isinstance(obj, dict) else None
@@ -333,6 +343,8 @@ def extract_structured_records(raw_text: str, default_source: str) -> List[Dict[
 
     records: List[Dict[str, Any]] = []
 
+    # If the file already looks structured, preserve that structure before
+    # falling back to paragraph-style record splitting.
     if stripped.startswith("{") or stripped.startswith("["):
         try:
             parsed = json.loads(raw_text)
@@ -395,6 +407,8 @@ def pick_best_text_column(df: pd.DataFrame) -> Optional[str]:
     if not object_columns:
         return None
 
+    # When column names are messy, use the longest object column as a practical
+    # guess for "the real text" field.
     best_column = None
     best_score = -1.0
     for column in object_columns:
@@ -533,6 +547,8 @@ def extract_entities(text: str, models: ModelBundle) -> Dict[str, str]:
         organizations = [ent.text for ent in doc.ents if ent.label_ == "ORG"]
         dates = [ent.text for ent in doc.ents if ent.label_ in {"DATE", "TIME"}]
 
+    # Regex fallbacks are intentionally simple, but they keep the pipeline usable
+    # when NER is unavailable or the text is too noisy for spaCy to help.
     if not people:
         people = fallback_people(text)
     if not locations:
@@ -646,6 +662,8 @@ def classify_topic(text: str, models: ModelBundle) -> Tuple[str, float]:
 
 
 def reconcile_crime_type(crime_type: str, topic_label: str, topic_score: float) -> str:
+    # Let obviously critical topics override weaker keyword matches so the final
+    # label stays sensible for high-stakes events.
     topic_lower = topic_label.lower()
     if topic_lower in PRIORITY_TOPICS:
         return PRIORITY_TOPICS[topic_lower]
@@ -726,6 +744,8 @@ def run_pipeline(
             "The input can be CSV, JSON-lines, JSON, or plain text."
         )
 
+    # Clean once up front so entity extraction, sentiment, topic, and severity
+    # all work from the same normalized text.
     df["Cleaned_Text"] = df["Raw_Text"].apply(clean_text)
     df["Processed_Text"] = df["Cleaned_Text"].apply(
         lambda text: preprocess_for_tokens(text, models.stop_words)
@@ -777,6 +797,8 @@ def run_pipeline(
     output_path.parent.mkdir(parents=True, exist_ok=True)
     extended_output_path.parent.mkdir(parents=True, exist_ok=True)
 
+    # Write both variants: a compact submission CSV and a fuller analyst CSV
+    # that keeps the extra evidence useful during debugging and demos.
     result_df[submission_cols].to_csv(output_path, index=False)
     result_df.to_csv(extended_output_path, index=False)
     return result_df

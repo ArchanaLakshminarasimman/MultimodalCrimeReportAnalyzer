@@ -1,3 +1,5 @@
+"""Streamlit dashboard for browsing the final integrated incident CSV."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -50,6 +52,8 @@ def load_incident_data(csv_path: str) -> pd.DataFrame:
     if not path.exists():
         raise FileNotFoundError(path)
 
+    # Cache the CSV so filter tweaks feel instant instead of rereading the file
+    # on every small interaction in the dashboard.
     frame = pd.read_csv(path).fillna("")
     for column in frame.columns:
         frame[column] = frame[column].astype(str)
@@ -110,6 +114,8 @@ def filter_incidents(frame: pd.DataFrame) -> pd.DataFrame:
     if keyword:
         needle = keyword.strip().lower()
         combined = pd.Series("", index=filtered.index, dtype="string")
+        # Build one searchable text blob per row so the keyword box feels
+        # flexible without adding a dozen separate search inputs.
         for column in SEARCH_COLUMNS:
             if column in filtered.columns:
                 combined = combined.str.cat(filtered[column].astype(str), sep=" ")
@@ -144,6 +150,8 @@ def render_summary_charts(frame: pd.DataFrame) -> None:
         else pd.DataFrame(columns=["Source", "Count"])
     )
 
+    # A quick chart pair makes the dashboard useful in demos before anyone even
+    # touches the detail table.
     with left:
         st.subheader("Severity Overview")
         if severity_counts.empty:
@@ -191,6 +199,8 @@ def render_incident_details(frame: pd.DataFrame) -> None:
     summary_cols[0].metric("Incident", row.get("Incident_ID", ""))
     summary_cols[1].metric("Sources", row.get("Source", ""))
     summary_cols[2].metric("Severity", row.get("Severity", ""))
+    # Prefer the most incident-like field available so mixed-modality rows still
+    # show a readable headline.
     primary_event = (
         row.get("Audio_Event", "")
         or row.get("Text_Crime_Type", "")
@@ -207,6 +217,8 @@ def render_incident_details(frame: pd.DataFrame) -> None:
                 for column in columns
                 if column in frame.columns
             }
+            # Empty modality sections are hidden behind a short caption so the
+            # detail panel stays readable even when many fields are blank.
             non_empty = {key: value for key, value in group_data.items() if value}
             if non_empty:
                 detail_frame = pd.DataFrame(
@@ -221,6 +233,8 @@ def main() -> None:
     st.title("Multimodal Incident Dashboard")
     st.caption("Filter, inspect, and present the integrated incident dataset for the assignment demo.")
 
+    # Keeping the path editable makes it easy to point the dashboard at a freshly
+    # regenerated CSV without changing the code.
     csv_path = st.text_input("Integrated CSV path", value=str(DEFAULT_CSV))
 
     try:

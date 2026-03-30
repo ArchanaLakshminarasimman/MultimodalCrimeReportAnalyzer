@@ -1,3 +1,5 @@
+"""Image analysis pipeline for the assignment's scene-photo modality."""
+
 import argparse
 import os
 from collections import Counter
@@ -30,6 +32,8 @@ def load_config(config_path: Path) -> Dict:
 
 
 def get_image_dirs(dataset_location: Path) -> List[Path]:
+    # Roboflow-style datasets keep images split by train/valid/test, and we
+    # want inference over all of them for a simple assignment demo.
     return [
         dataset_location / "train" / "images",
         dataset_location / "valid" / "images",
@@ -47,6 +51,8 @@ def list_images(folder: Path) -> List[Path]:
 
 
 def classify_scene(detected_labels: Set[str]) -> str:
+    # These scene labels are intentionally assignment-friendly summaries built
+    # on top of the raw YOLO detections.
     if "fire" in detected_labels and "smoke" in detected_labels:
         return "Fire Scene"
     if "fire" in detected_labels:
@@ -128,6 +134,8 @@ def process_images(model: YOLO, image_dirs: List[Path], cfg: Dict) -> pd.DataFra
             if max_images > 0 and processed >= max_images:
                 return pd.DataFrame(results_list)
 
+            # Convert every image into one structured row so the integration
+            # layer can treat image analysis like any other CSV modality.
             img_id = f"IMG_{img_path.stem}"
             detection = model(str(img_path), conf=infer_conf, verbose=False)[0]
 
@@ -167,6 +175,8 @@ def save_sample_visualization(model: YOLO, image_dirs: List[Path], cfg: Dict) ->
 
     sample_path = None
     result_vis = None
+    # Grab the first image with at least one detection so the README/demo has a
+    # visual artifact without needing any manual selection.
     for split_dir in image_dirs:
         for test_path in list_images(split_dir):
             test_result = model(str(test_path), conf=infer_conf, verbose=False)[0]
@@ -240,6 +250,8 @@ def main() -> None:
     )
     args = parser.parse_args()
 
+    # Environment variables let teammates swap datasets or OCR paths without
+    # editing the checked-in YAML config.
     load_dotenv(PROJECT_ROOT / ".env", override=True)
 
     config_path = resolve_path(args.config)
