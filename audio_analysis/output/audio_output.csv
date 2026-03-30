@@ -1,0 +1,11 @@
+Call_ID,Transcript,Extracted_Event,Location,Sentiment,Urgency_Score
+C001,Man.,Unknown,Indiana,Calm,0.14
+C002,This is the Blocopia Bank in 1302 with the Transnational Speedway call of art. Okay.,Robbery / theft,Florida,Distressed,0.49
+C003,Yeah? Yeah. Yeah. Yeah. Yeah. Yeah.,Domestic disturbance,Wisconsin,Calm,0.0
+C004,"Yes, we're at the Nelson building and there's some men here with the bus to clean into the board meeting. Okay, you're at",Shooting,Florida,Calm,0.3
+C005,"Listen, we're playing really bad at this. Okay, so get on our track, mate. People, you gotta track, mate, you b****.",Domestic disturbance,Connecticut,Distressed,0.7
+C006,D- fate.,Unknown,Connecticut,Distressed,0.66
+C007,"I'm locking in the field and I'm looking for a champ. You're walking in the field. OK, and you should just stop. OK, I'm going to try to find you.",Road accident,Wisconsin,Distressed,0.38
+C008,Margent Team somebody dead set up all his old pays a yesterday. Thank you puff tớiv,Shooting,California,Calm,0.42
+C009,Hello.,Unknown,California,Calm,0.3
+C010,"Now that it's allMS eats, it's always a bit Mashamid Avoidator, or, we'll go in autograph... Okay.",Shooting,California,Distressed,0.7

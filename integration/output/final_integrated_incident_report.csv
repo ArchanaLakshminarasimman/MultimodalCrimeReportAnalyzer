@@ -1,0 +1,9 @@
+Incident_ID,Source,Audio_Event,Audio_Location,Audio_Sentiment,Audio_Urgency_Score,PDF_Doc_Type,PDF_Date,PDF_Location,PDF_Officer,PDF_Summary,Image_Scene_Type,Image_Objects,Image_Text_Extracted,Image_Max_Confidence,Video_Event,Video_Time,Video_Max_Persons,Video_Max_Confidence,Text_Crime_Type,Text_Location,Text_Sentiment,Text_Topic,Text_Source_Severity,Severity
+INC_001,Document,,,,,Military Equipment Training,"January 19, 2015",,Eric Wacaster,"The following documentation is intended to document the intended use and training of the Mine Resistatant Ambush Protection Vehicle, which was allocated to the Fort Smith Police Department, by the United States Government.",,,,,,,,,,,,,,Low
+INC_002,Image + Text,,,,,,,,,,Fire Incident,fire,,0.81,,,,,Fire,,Negative,fire,Medium,High
+INC_003,Video,,,,,,,,,,,,,,pedestrian movement,00:00:02,1,0.66,,,,,,Low
+INC_004,Video,,,,,,,,,,,,,,pedestrian movement,00:00:02,2,0.76,,,,,,Low
+INC_005,Text,,,,,,,,,,,,,,,,,,Shooting,"Pontchartrain Park, Gentilly",Negative,shooting,High,High
+INC_006,Audio,Robbery / theft,Florida,Distressed,0.49,,,,,,,,,,,,,,,,,,,Medium
+INC_007,Audio,Domestic disturbance,Connecticut,Distressed,0.70,,,,,,,,,,,,,,,,,,,High
+INC_008,Audio,Shooting,California,Distressed,0.70,,,,,,,,,,,,,,,,,,,High

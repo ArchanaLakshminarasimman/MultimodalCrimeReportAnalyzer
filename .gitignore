@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+
+# Local environment files
+.env
+
+# Generated artifacts
+image_analysis/runs/
+video_analysis/frames/
+
+# Optional local data ignores
+# Uncomment these if you do not want to push raw datasets to GitHub.
+# audio_analysis/data/
+# image_analysis/data/
+# video_analysis/data/

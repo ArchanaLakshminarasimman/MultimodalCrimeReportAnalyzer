@@ -1,0 +1,13 @@
+names:
+- fire
+- smoke
+nc: 2
+roboflow:
+  license: CC BY 4.0
+  project: fire-fhsxx
+  url: https://universe.roboflow.com/gadjiiavov-n4n8k/fire-fhsxx/dataset/2
+  version: 2
+  workspace: gadjiiavov-n4n8k
+test: ../test/images
+train: ../train/images
+val: ../valid/images

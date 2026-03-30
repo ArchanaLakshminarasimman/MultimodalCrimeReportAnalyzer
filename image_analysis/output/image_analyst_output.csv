@@ -1,0 +1,151 @@
+Image_ID,Scene_Type,Objects_Detected,Bounding_Boxes,Text_Extracted,Confidence
+IMG_0050_jpg.rf.4e03b70ab97e60c7fede569be2942ed9,Unknown,None,None,None,0.0
+IMG_0050_jpg.rf.d26a43c1bae75de2882b94da4e9b3510,Unknown,None,None,None,0.0
+IMG_0050_jpg.rf.e8b54db77ff3417734d86ad07bdbc481,Unknown,None,None,None,0.0
+IMG_0055_jpg.rf.2286b2e289e83f768f1db192a669c573,Fire Incident,fire,1 fire region,None,0.44
+IMG_0055_jpg.rf.baf7fb3bbfdacb5cd3b7d10e5336fb9c,Unknown,None,None,None,0.0
+IMG_0055_jpg.rf.e1de21e8adb4a48d5c82c81c625feb50,Unknown,None,None,None,0.0
+IMG_0057_JPG_jpg.rf.2833c9f094c643ad53dca8ec81d90703,Unknown,None,None,None,0.0
+IMG_0057_JPG_jpg.rf.32ec0dd2fe768b8a1001ad83c7aae9a0,Unknown,None,None,None,0.0
+IMG_0057_JPG_jpg.rf.5e13292433f3693a4dd15011f52a5d64,Unknown,None,None,None,0.0
+IMG_0069_jpg.rf.1ef924b4981998a8033258bdf1caf29f,Unknown,None,None,None,0.0
+IMG_0069_jpg.rf.2cd48d38a4ec0602116b88fa0cef409b,Unknown,None,None,None,0.0
+IMG_0069_jpg.rf.3360a1360673e56ad2a8bb8fb0775412,Unknown,None,None,None,0.0
+IMG_0069_jpg.rf.6165fe5f61e338cca9a999fa97215f3f,Unknown,None,None,None,0.0
+IMG_0069_jpg.rf.6e3f3169216287c3546f70fce0d147e7,Fire Incident,fire,1 fire region,None,0.4
+IMG_0069_jpg.rf.76b81f1d75dba70b21ce26fe061f5e14,Unknown,None,None,None,0.0
+IMG_0069_jpg.rf.9541166c8ecdb6d4a595ecd954e28178,Unknown,None,None,None,0.0
+IMG_0069_jpg.rf.b879c9fbc91517f2356ad964f36be229,Unknown,None,None,None,0.0
+IMG_0069_jpg.rf.eb9c6bcfe4a68a33c9979d84f4807f5f,Unknown,None,None,None,0.0
+IMG_0071_JPG_jpg.rf.0fb8894b58a4f8c1a0ce196440fcd5f8,Unknown,None,None,None,0.0
+IMG_0071_JPG_jpg.rf.265242b0c7def8432fb262fe7465b4b9,Unknown,None,None,None,0.0
+IMG_0071_JPG_jpg.rf.2c786cfa579364076d8192656425196a,Unknown,None,None,None,0.0
+IMG_0071_JPG_jpg.rf.309fef2fb897b644babe5e633f7f1efc,Unknown,None,None,None,0.0
+IMG_0071_JPG_jpg.rf.66051e17c44a1e83611238bfe31faae9,Unknown,None,None,None,0.0
+IMG_0071_JPG_jpg.rf.fc61a68a4e303a659b33a35301cfc24c,Unknown,None,None,None,0.0
+IMG_0087_jpg.rf.0247ff5ae5f2f72abb83d5f848cdb911,Unknown,None,None,None,0.0
+IMG_0087_jpg.rf.1bfa2cfd62b2e7b17196ac536e3deab1,Unknown,None,None,None,0.0
+IMG_0087_jpg.rf.2fd71d88b5328c2e801cc4eae5305f73,Unknown,None,None,None,0.0
+IMG_0088_JPG_jpg.rf.772f4562302bc0be4aad9f6032468a1e,Unknown,None,None,None,0.0
+IMG_0088_JPG_jpg.rf.b4e42125db38197bc57d76280b60c261,Unknown,None,None,None,0.0
+IMG_0088_JPG_jpg.rf.f866d72754244a48803234d1e474cd50,Unknown,None,None,None,0.0
+IMG_0094_jpg.rf.20b785bd87373bca192f25806f87ab4b,Unknown,None,None,None,0.0
+IMG_0094_jpg.rf.363af681b821ca95d688b882bb0a4db2,Unknown,None,None,None,0.0
+IMG_0094_jpg.rf.adc82fe9de668a559ba9a46ef94e2a66,Unknown,None,None,None,0.0
+IMG_0095_jpg.rf.41e5faa83e1efc2f55fe68b0697f4b93,Unknown,None,None,None,0.0
+IMG_0095_jpg.rf.4b7b4813089ac14e5cbdec305b7e7604,Unknown,None,None,None,0.0
+IMG_0095_jpg.rf.9e84fa56dabe8950f31b3260f01fdfa6,Unknown,None,None,None,0.0
+IMG_00980a5f319aec67_jpg.rf.27a398386dc4891d183082a131c559b8,Unknown,None,None,None,0.0
+IMG_00980a5f319aec67_jpg.rf.bdabf338d13b39f2a72d17660e0b8f92,Unknown,None,None,None,0.0
+IMG_00980a5f319aec67_jpg.rf.fd1dc95a23c0f31cf3cc558c617ba6ac,Unknown,None,None,None,0.0
+IMG_0098_jpg.rf.4d4f2ae75e76ac06d5e1783b43fd0386,Unknown,None,None,None,0.0
+IMG_0098_jpg.rf.6a923a1dac0b5c46352e100d0d37ed34,Unknown,None,None,None,0.0
+IMG_0098_jpg.rf.734e6dbb9f472cf33c310d1bc8f0b34e,Unknown,None,None,None,0.0
+IMG_0098_jpg.rf.82be7fc11b906188a46609f539e47816,Unknown,None,None,None,0.0
+IMG_0098_jpg.rf.866749cb493bd7881f73f391dd04584a,Unknown,None,None,None,0.0
+IMG_0098_jpg.rf.cca2e1695efea072a53cd1faf142337b,Unknown,None,None,None,0.0
+IMG_0099_jpg.rf.a86181e273d70c8e4b7eda3440c2ff78,Unknown,None,None,None,0.0
+IMG_0099_jpg.rf.bf69ed997e8632a44c5d99e8d72e1f55,Unknown,None,None,None,0.0
+IMG_0099_jpg.rf.f966a66e403d62bb531d04596bda535b,Unknown,None,None,None,0.0
+IMG_0102_jpg.rf.52388ecf7d14a7537a1ba76fb4f542c8,Fire Incident,fire,1 fire region,None,0.45
+IMG_0102_jpg.rf.cbac77c7176cdd44eb56c94b5f1ac7e8,Unknown,None,None,None,0.0
+IMG_0102_jpg.rf.fd61a23379f9866ee38614580fc81836,Unknown,None,None,None,0.0
+IMG_0103_jpg.rf.0ec73dedfb3bf57a414af66139e04066,Unknown,None,None,None,0.0
+IMG_0103_jpg.rf.25653e813a602ae2c9fef47c9795c114,Unknown,None,None,None,0.0
+IMG_0103_jpg.rf.92da7a44cc99a1c433bd9411fbb2791e,Unknown,None,None,None,0.0
+IMG_0103_jpg.rf.f1c8daa6f32384a11031896c1952dd1c,Unknown,None,None,None,0.0
+IMG_0103_jpg.rf.f4d1f4cbfd9d7dce4339aa29505db079,Unknown,None,None,None,0.0
+IMG_0103_jpg.rf.f83ac4342b465d17f448e3ab9af2ecb4,Unknown,None,None,None,0.0
+IMG_0107_jpg.rf.0d0b37dac8ebd0d63c04adaa218cf46a,Unknown,None,None,None,0.0
+IMG_0107_jpg.rf.1069ef54cea269bb9c2c060472b8c8ae,Unknown,None,None,None,0.0
+IMG_0107_jpg.rf.4513566905675cad33d53730fba8b7be,Fire Incident,fire,1 fire region,None,0.45
+IMG_0111_jpg.rf.29b871b6c48e4bf448f6b420737448fa,Unknown,None,None,None,0.0
+IMG_0111_jpg.rf.4b7162a1c439d630d0498c23a10dddb6,Unknown,None,None,None,0.0
+IMG_0111_jpg.rf.79c7400a0c272f0903da870d3ed21c8f,Unknown,None,None,None,0.0
+IMG_0111_jpg.rf.7fc30a7c69560140316109242769284a,Unknown,None,None,None,0.0
+IMG_0111_jpg.rf.869083b55f61997226f1d2812b4ba2d0,Unknown,None,None,None,0.0
+IMG_0111_jpg.rf.995735d3e2a34f52d4746409c476c437,Unknown,None,None,None,0.0
+IMG_0111_jpg.rf.9ef715d4a294f252812efe107ed0ee51,Unknown,None,None,None,0.0
+IMG_0111_jpg.rf.c73854fe64c431b70fd54732a4d997db,Unknown,None,None,None,0.0
+IMG_0111_jpg.rf.eda8a9c4e4f893b0608d4f4ed100f65e,Unknown,None,None,None,0.0
+IMG_0112_JPG_jpg.rf.1d0f7389ac16e751df7bdbc1c369a9fc,Unknown,None,None,None,0.0
+IMG_0112_JPG_jpg.rf.28bf596d23aed46554e2d880afc47755,Unknown,None,None,None,0.0
+IMG_0112_JPG_jpg.rf.5d304b669f29344f7a5baf22f6802934,Unknown,None,None,None,0.0
+IMG_0112_JPG_jpg.rf.a15e2d2c3419ef4c066643cab457939d,Unknown,None,None,None,0.0
+IMG_0112_JPG_jpg.rf.d64dbef9652cb729d63d21011b09fe57,Unknown,None,None,None,0.0
+IMG_0112_JPG_jpg.rf.d9020a0984f5b20d17bae3c4137c3f89,Unknown,None,None,None,0.0
+IMG_0112_jpg.rf.54c8744ff8269334a85a0265c68410c7,Unknown,None,None,None,0.0
+IMG_0112_jpg.rf.58e24a8de2f6718c3be269629c9c4a23,Unknown,None,None,None,0.0
+IMG_0112_jpg.rf.6f02e0ff893f5df7a50337add298f2a8,Unknown,None,None,None,0.0
+IMG_0113_jpg.rf.44b53dd1073fbcf471879bc4b60e7014,Unknown,None,None,None,0.0
+IMG_0113_jpg.rf.602788fdb7673c8b2a15a21ab4861b4d,Unknown,None,None,None,0.0
+IMG_0113_jpg.rf.bbfd54333078a6cbdfdb897b66561352,Unknown,None,None,None,0.0
+IMG_0114_jpg.rf.058174939fa118a4a48eae9f78a2b367,Fire Incident,fire,1 fire region,None,0.46
+IMG_0114_jpg.rf.07898a96978bdb836bd717e29b916d29,Unknown,None,None,None,0.0
+IMG_0114_jpg.rf.170d719c3736d75dc0026a02a33e13bb,Fire Incident,fire,1 fire region,None,0.46
+IMG_0114_jpg.rf.c86a27d9f5757c9120c7073142d97688,Unknown,None,None,None,0.0
+IMG_0114_jpg.rf.e8acbdada5d81c6c6cbc924db305fbdc,Unknown,None,None,None,0.0
+IMG_0114_jpg.rf.f8f5a16c8263076c41d34d47f4373b9f,Unknown,None,None,None,0.0
+IMG_0116_jpg.rf.1dec92c943752d6781374d6b179eede5,Unknown,None,None,None,0.0
+IMG_0116_jpg.rf.925b8f2603bc6bcab88c2e764227e85c,Unknown,None,None,None,0.0
+IMG_0116_jpg.rf.c38e91d2ff9586511982338c7e4171a9,Unknown,None,None,None,0.0
+IMG_0119_jpg.rf.0f73ae27fe1856a8dbd57153a32cb918,Unknown,None,None,None,0.0
+IMG_0119_jpg.rf.da94d6d905c7a262b395eccc77c1dd5e,Unknown,None,None,None,0.0
+IMG_0119_jpg.rf.dc9f09607ca32c709ba829b2745b62d8,Unknown,None,None,None,0.0
+IMG_0121_jpg.rf.16703c3226038d88dbf06f0789c9fd40,Unknown,None,None,None,0.0
+IMG_0121_jpg.rf.225bbc42166e719285938b19c4b94d59,Fire Incident,fire,1 fire region,None,0.48
+IMG_0121_jpg.rf.3143cb80ca1a62899efe263773affa9d,Unknown,None,None,None,0.0
+IMG_0121_jpg.rf.6a73a62e010833c768c9db42929977e3,Unknown,None,None,None,0.0
+IMG_0121_jpg.rf.6d73a091221bc8fee6245545f8aecaa1,Fire Incident,fire,1 fire region,None,0.42
+IMG_0121_jpg.rf.834d0de2301eedcb5c9266860a72f5f5,Unknown,None,None,None,0.0
+IMG_0121_jpg.rf.892261a0608345101e659734b0e3eb85,Unknown,None,None,None,0.0
+IMG_0121_jpg.rf.ca10159a261738b8ece25b67f3610bcd,Unknown,None,None,None,0.0
+IMG_0121_jpg.rf.d186a5730847d39555c3b24e041ebfad,Unknown,None,None,None,0.0
+IMG_0124_jpg.rf.26ed4ebe98819221f5b5939c2bc0399f,Unknown,None,None,None,0.0
+IMG_0124_jpg.rf.358c6d26b572709a3fa812edb8c50c04,Unknown,None,None,None,0.0
+IMG_0124_jpg.rf.996da0c1604166050009453386c2e299,Unknown,None,None,None,0.0
+IMG_01275d5d68568970_jpg.rf.4c6dab9d10cc2a3ea11ad8104e3ee801,Unknown,None,None,None,0.0
+IMG_01275d5d68568970_jpg.rf.b8c7bf59f09628bc3f9be999de9edeba,Unknown,None,None,None,0.0
+IMG_01275d5d68568970_jpg.rf.f4eaa31c8e41f45b979969172a379834,Unknown,None,None,None,0.0
+IMG_0128_jpg.rf.3c8b1f9457520bf90f4230c7d80ac75a,Unknown,None,None,None,0.0
+IMG_0128_jpg.rf.4a29d37cbad244f8b70da154d8226639,Unknown,None,None,None,0.0
+IMG_0128_jpg.rf.9c3ef405743cf6d39ae366d65cbf8a33,Unknown,None,None,None,0.0
+IMG_0130_jpg.rf.27fd403bc6b23c28a3b5fc6342de98ca,Fire Incident,fire,1 fire region,None,0.43
+IMG_0130_jpg.rf.5edcb1a38f895ca514ea9f7b8b8a3072,Unknown,None,None,None,0.0
+IMG_0130_jpg.rf.dd2d39700ef6d6f66b1bde05f8f687d9,Unknown,None,None,None,0.0
+IMG_0131_jpg.rf.02edb45795a5d4911ea95002c8d893f4,Fire Incident,fire,1 fire region,None,0.44
+IMG_0131_jpg.rf.6a7cf5a858cccd9476220bbfde70ce2c,Fire Incident,fire,1 fire region,None,0.62
+IMG_0131_jpg.rf.f967f71c96f9b0338484707b8cc967d5,Fire Incident,fire,1 fire region,None,0.48
+IMG_0132_jpg.rf.175cdd17c1446fd435d583c1cae450a2,Unknown,None,None,None,0.0
+IMG_0132_jpg.rf.a2396e675ea3eec0704128277a00f8eb,Unknown,None,None,None,0.0
+IMG_0132_jpg.rf.b1ec3279a8d5ea4d228f34e71fdc007d,Unknown,None,None,None,0.0
+IMG_0132_jpg.rf.b7e9ee8f311b37573e3e4dbd03903614,Unknown,None,None,None,0.0
+IMG_0132_jpg.rf.b8c44e5c2a01affc933668e5630437bf,Unknown,None,None,None,0.0
+IMG_0132_jpg.rf.c5ddbad7985233dc2b0741d3c768f288,Unknown,None,None,None,0.0
+IMG_0134_jpg.rf.47af5e0b73f3a64f9bf25526e29aae53,Fire Incident,fire,1 fire region,None,0.68
+IMG_0134_jpg.rf.5c3c328bc21cd59fa1600c86bf5f8615,Unknown,None,None,Campfire and sausages,0.0
+IMG_0134_jpg.rf.5dcf68cd370f64e895b01bee7db2f97d,Unknown,None,None,None,0.0
+IMG_0134_jpg.rf.8acf294f9794cf9138622d1f392bd329,Fire Incident,fire,1 fire region,None,0.62
+IMG_0134_jpg.rf.a0f1b9714be202580475b2a29de41df7,Fire Incident,fire,1 fire region,Campfire and sausages,0.43
+IMG_0134_jpg.rf.b521ff8ed65442b58e2132ad08ed2ed0,Unknown,None,None,Campfire and sausages,0.0
+IMG_0134_jpg.rf.be97860a11d401f6780bc6b862a24490,Unknown,None,None,None,0.0
+IMG_0134_jpg.rf.ef5d22b3d0707e706a2deebbcf41a0b7,Fire Incident,fire,1 fire region,fire andl Sausages,0.6
+IMG_0134_jpg.rf.f4f3c4536e7ca862d03dc3c790ebdc58,Unknown,None,None,None,0.0
+IMG_0135_jpg.rf.0baba399935b5fefa69747c4e0c5e93e,Unknown,None,None,None,0.0
+IMG_0135_jpg.rf.390aeebd0aa22ae075620cdbeec2581b,Unknown,None,None,None,0.0
+IMG_0135_jpg.rf.7128a9191a18e765dc04cf99740fbb3d,Unknown,None,None,None,0.0
+IMG_0136_jpg.rf.00ced6369cb7aab6760cb43d016baa8d,Fire Incident,fire,1 fire region,None,0.81
+IMG_0136_jpg.rf.12ef5193a286b895d848cb136a4e6350,Unknown,None,None,None,0.0
+IMG_0136_jpg.rf.5c7ba19217f030205b1d6c6b036a65a3,Unknown,None,None,None,0.0
+IMG_0136_jpg.rf.6020f1daa106e9c5dfccf3dbf2644099,Unknown,None,None,None,0.0
+IMG_0136_jpg.rf.754c0566d3527fbe96a094720a63164f,Unknown,None,None,None,0.0
+IMG_0136_jpg.rf.abed6da9a77ff2ec6a3eafbcc077ea3e,Unknown,None,None,None,0.0
+IMG_0136_jpg.rf.de064a553bc945ee68314b372eba2e09,Fire Incident,fire,1 fire region,None,0.49
+IMG_0136_jpg.rf.e3175fd853276f4cbd356b2c13d46534,Fire Incident,fire,1 fire region,None,0.67
+IMG_0136_jpg.rf.e9aeb33b14eca265650e6844ef3f68b3,Unknown,None,None,None,0.0
+IMG_0137_jpg.rf.3de7237212fbce602ca41ec55cd90e47,Fire Incident,fire,1 fire region,None,0.73
+IMG_0137_jpg.rf.56f9f5cc868dc89d5a0a0db941fe1fb1,Fire Incident,fire,1 fire region,None,0.79
+IMG_0137_jpg.rf.788806e4affd7053552d6a38bc69e20b,Fire Incident,fire,1 fire region,None,0.57
+IMG_0137_jpg.rf.7a0518d2aa69f40657706afcda20ccf8,Fire Incident,fire,1 fire region,None,0.74
+IMG_0137_jpg.rf.b38075042cb2ea3840dfb7c14094d648,Fire Incident,fire,1 fire region,None,0.53
+IMG_0137_jpg.rf.cf7669788e3c651f3c5b77a745ff206a,Fire Incident,fire,1 fire region,None,0.41

@@ -1,0 +1,25 @@
+Clip_ID,Timestamp,Frame_ID,Event_Detected,Persons_Count,Confidence
+Browse1,00:00:02,frame_002,brisk pedestrian movement,1,0.57
+Browse1,00:00:06,frame_006,brisk pedestrian movement,1,0.54
+Browse1,00:00:08,frame_008,pedestrian movement,1,0.49
+Browse1,00:00:22,frame_022,pedestrian movement,1,0.65
+Browse1,00:00:30,frame_030,pedestrian movement,1,0.47
+Browse1,00:00:35,frame_035,pedestrian movement,1,0.66
+Browse1,00:00:40,frame_040,brisk pedestrian movement,1,0.54
+Fight_Chase,00:00:01,frame_001,brisk pedestrian movement,1,0.54
+Fight_Chase,00:00:03,frame_003,pedestrian movement,1,0.48
+Fight_Chase,00:00:16,frame_016,pedestrian movement,1,0.48
+LeftBag,00:00:04,frame_004,pedestrian movement,1,0.57
+LeftBag,00:00:13,frame_013,pedestrian movement,1,0.5
+LeftBag,00:00:34,frame_034,pedestrian movement,1,0.76
+LeftBag,00:00:42,frame_042,pedestrian movement,1,0.46
+LeftBag,00:00:51,frame_051,pedestrian movement,1,0.5
+LeftBag,00:00:52,frame_052,brisk pedestrian movement,1,0.63
+Rest_FallOnFloor,00:00:02,frame_002,active group movement,2,0.54
+Rest_FallOnFloor,00:00:04,frame_004,pedestrian movement,1,0.47
+Rest_FallOnFloor,00:00:08,frame_008,pedestrian movement,1,0.54
+Rest_FallOnFloor,00:00:26,frame_026,pedestrian movement,1,0.47
+Rest_FallOnFloor,00:00:31,frame_031,stationary pedestrian,1,0.75
+Rest_FallOnFloor,00:00:36,frame_036,pedestrian movement,1,0.49
+Rest_FallOnFloor,00:00:39,frame_039,brisk pedestrian movement,1,0.76
+Walk1,00:00:04,frame_004,brisk pedestrian movement,1,0.54
