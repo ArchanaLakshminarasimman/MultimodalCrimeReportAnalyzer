@@ -2,11 +2,11 @@
 
 This module combines the current structured outputs from:
 
-- `audio_analysis/output/audio_output.csv`
-- `document_analysis/output/incident_extract.csv`
-- `image_analysis/output/image_analyst_output.csv`
-- `video_analysis/output/video_event_log.csv`
-- `text_analysis/output/text_output.csv`
+- `audio/output/audio_output.csv`
+- `pdf/output/incident_extract.csv`
+- `images/output/image_analyst_output.csv`
+- `video/output/video_event_log.csv`
+- `text/output/text_output.csv`
 
 Audio is integrated through the same incident map workflow used by the other
 modalities.

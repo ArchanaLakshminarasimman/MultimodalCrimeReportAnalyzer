@@ -47,7 +47,7 @@ The extended CSV also includes the cleaned text, extracted entities, organizatio
 
 ## Setup
 
-From the `text_analysis/` folder:
+From the `text/` folder:
 
 ```bash
 python3 -m venv .venv
@@ -72,7 +72,7 @@ Without transformers, it falls back to rule-based sentiment and topic logic.
 
 ## Run
 
-From the `text_analysis/` folder:
+From the `text/` folder:
 
 Lightweight run with rule-based fallback:
 

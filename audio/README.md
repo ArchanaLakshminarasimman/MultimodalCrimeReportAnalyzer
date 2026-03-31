@@ -41,7 +41,7 @@ Current output columns:
 
 ## Setup
 
-From the `audio_analysis/` folder:
+From the `audio/` folder:
 
 ```bash
 python3 -m venv .venv
@@ -60,7 +60,7 @@ On first run, Whisper and the Hugging Face sentiment model may download model we
 
 ## Run
 
-From the `audio_analysis/` folder:
+From the `audio/` folder:
 
 Quick test on 10 files:
 

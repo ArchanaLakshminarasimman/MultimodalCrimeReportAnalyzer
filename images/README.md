@@ -25,7 +25,7 @@ Current CSV columns:
 ## Folder Structure
 
 ```text
-image_analysis/
+images/
 ├── .env.example
 ├── README.md
 ├── app.config.yaml
@@ -88,10 +88,10 @@ Notes:
 
 ## How To Run
 
-From the `image_analysis` folder:
+From the `images` folder:
 
 ```bash
-cd /Users/archana/Documents/SP2026/AI_For_Engg/Assignment_3/MultimodalCrimeReportAnalyzer/image_analysis
+cd /Users/archana/Documents/SP2026/AI_For_Engg/Assignment_3/MultimodalCrimeReportAnalyzer/images
 source .venv/bin/activate
 ```
 

@@ -27,7 +27,7 @@ The pipeline uses:
 
 ## Setup
 
-From the `document_analysis/` folder:
+From the `pdf/` folder:
 
 ```bash
 python3 -m venv .venv
@@ -58,7 +58,7 @@ Sample file already in this folder:
 
 ## Run
 
-From the `document_analysis/` folder:
+From the `pdf/` folder:
 
 ```bash
 python3 src/document_analysis.py data/LESO2.pdf -o output/incident_extract.csv -v

@@ -4,24 +4,22 @@ This project is a team-built multimodal crime analysis system for assignment wor
 
 ## Assignment Folder Mapping
 
-The assignment brief asks for folders like `/audio`, `/pdf`, `/images`, `/video`, `/text`, and `/integration`.
+This repository now matches the assignment folder names directly:
 
-This repository uses slightly more descriptive names, but they map directly:
-
-- `audio_analysis/` = assignment `/audio`
-- `document_analysis/` = assignment `/pdf`
-- `image_analysis/` = assignment `/images`
-- `video_analysis/` = assignment `/video`
-- `text_analysis/` = assignment `/text`
-- `integration/` = assignment `/integration`
+- `audio/`
+- `pdf/`
+- `images/`
+- `video/`
+- `text/`
+- `integration/`
 
 ## Current Modules
 
-- `audio_analysis/` processes emergency-call audio and writes structured CSV output
-- `document_analysis/` extracts structured incident details from PDF reports
-- `image_analysis/` analyzes scene images and writes structured detection CSV output
-- `text_analysis/` analyzes crime-related text records and writes structured CSV outputs
-- `video_analysis/` analyzes surveillance-style clips and generates an event log
+- `audio/` processes emergency-call audio and writes structured CSV output
+- `pdf/` extracts structured incident details from PDF reports
+- `images/` analyzes scene images and writes structured detection CSV output
+- `text/` analyzes crime-related text records and writes structured CSV outputs
+- `video/` analyzes surveillance-style clips and generates an event log
 - `integration/` merges the available modality outputs into one assignment-ready incident report and dashboard
 
 ## Repository Structure
@@ -29,14 +27,19 @@ This repository uses slightly more descriptive names, but they map directly:
 ```text
 MultimodalCrimeReportAnalyzer/
 ├── README.md
-├── audio_analysis/
-├── document_analysis/
+├── audio/
 │   ├── README.md
 │   ├── data/
 │   ├── output/
 │   ├── requirements.txt
 │   └── src/
-├── image_analysis/
+├── pdf/
+│   ├── README.md
+│   ├── data/
+│   ├── output/
+│   ├── requirements.txt
+│   └── src/
+├── images/
 │   ├── README.md
 │   ├── data/
 │   ├── output/
@@ -49,14 +52,14 @@ MultimodalCrimeReportAnalyzer/
 │   ├── output/
 │   ├── requirements.txt
 │   └── src/
-├── text_analysis/
+├── text/
 │   ├── README.md
 │   ├── data/
 │   ├── output/
 │   ├── requirements.txt
 │   ├── requirements-full.txt
 │   └── src/
-├── video_analysis/
+├── video/
 │   ├── README.md
 │   ├── data/
 │   ├── frames/
@@ -70,11 +73,11 @@ MultimodalCrimeReportAnalyzer/
 
 Each implemented module has its own README with setup and run instructions:
 
-- [Audio Analysis](audio_analysis/README.md)
-- [Document Analysis](document_analysis/README.md)
-- [Image Analysis](image_analysis/README.md)
-- [Text Analysis](text_analysis/README.md)
-- [Video Analysis](video_analysis/README.md)
+- [Audio Analysis](audio/README.md)
+- [Document Analysis](pdf/README.md)
+- [Image Analysis](images/README.md)
+- [Text Analysis](text/README.md)
+- [Video Analysis](video/README.md)
 - [Integration](integration/README.md)
 
 ## Quick Start
@@ -86,7 +89,7 @@ Examples:
 Audio analysis:
 
 ```bash
-cd audio_analysis
+cd audio
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -96,7 +99,7 @@ python3 src/audio_analyzer.py --data data --output output/audio_output.csv --max
 Document analysis:
 
 ```bash
-cd document_analysis
+cd pdf
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -107,7 +110,7 @@ python3 src/document_analysis.py data/LESO2.pdf -o output/incident_extract.csv -
 Text analysis:
 
 ```bash
-cd text_analysis
+cd text
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -117,7 +120,7 @@ python3 src/text_analysis.py --input "data/CrimeReport (1).txt" --no-transformer
 Image analysis:
 
 ```bash
-cd image_analysis
+cd images
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -127,7 +130,7 @@ python3 src/main.py --mode infer --config app.config.yaml --max-images 150
 Video analysis:
 
 ```bash
-cd video_analysis
+cd video
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -153,16 +156,16 @@ to link `Call_ID`, `Report_ID`, `Image_ID`, `Clip_ID`, and `Text_ID` to a shared
 
 Current outputs produced by the implemented modules:
 
-- `audio_analysis/output/audio_output.csv`
-- `document_analysis/output/incident_extract.csv`
-- `image_analysis/output/image_analyst_output.csv`
-- `text_analysis/output/text_output.csv`
-- `video_analysis/output/video_event_log.csv`
+- `audio/output/audio_output.csv`
+- `pdf/output/incident_extract.csv`
+- `images/output/image_analyst_output.csv`
+- `text/output/text_output.csv`
+- `video/output/video_event_log.csv`
 - `integration/output/final_integrated_incident_report.csv`
 
 ## Notes
 
-- `video_analysis/` uses the `yolov8n.pt` model file already present in the project root.
-- `document_analysis/` may require Tesseract OCR for scanned PDFs.
-- `text_analysis/` can run in a lightweight rule-based mode with `--no-transformers`.
+- `video/` uses the `yolov8n.pt` model file already present in the project root.
+- `pdf/` may require Tesseract OCR for scanned PDFs.
+- `text/` can run in a lightweight rule-based mode with `--no-transformers`.
 - `integration/` includes a Streamlit dashboard at `integration/app.py`.

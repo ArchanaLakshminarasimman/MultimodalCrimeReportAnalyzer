@@ -40,7 +40,7 @@ The script also saves sampled frames under `frames/` for each processed clip.
 
 ## Setup
 
-From the `video_analysis/` folder:
+From the `video/` folder:
 
 ```bash
 python3 -m venv .venv
@@ -61,7 +61,7 @@ The script first looks for a local `yolov8n.pt` file in the repository root. If 
 
 ## Run
 
-From the `video_analysis/` folder:
+From the `video/` folder:
 
 ```bash
 python3 src/motion_detection.py
