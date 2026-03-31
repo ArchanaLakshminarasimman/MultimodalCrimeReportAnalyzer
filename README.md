@@ -84,6 +84,39 @@ Each implemented module has its own README with setup and run instructions:
 
 Choose the module you want to run, move into that folder, create a virtual environment, install dependencies, and follow that module's README.
 
+## Demo Only: Run Streamlit Dashboard
+
+If you only want to show the final dashboard on another laptop, you can skip the
+full audio, image, text, PDF, and video pipelines. The repository already
+includes a sample integrated CSV at
+`integration/output/final_integrated_incident_report.csv`, and the Streamlit app
+uses that file by default.
+
+From the repository root:
+
+```bash
+cd integration
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+streamlit run app.py
+```
+
+Windows activation command:
+
+```bash
+.venv\Scripts\activate
+```
+
+Then open `http://localhost:8501` in a browser.
+
+If the integrated CSV is missing for any reason, generate it once with:
+
+```bash
+python3 src/integrate_reports.py
+streamlit run app.py
+```
+
 Examples:
 
 Audio analysis:
